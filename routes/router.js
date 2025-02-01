@@ -1,8 +1,6 @@
 import { Router } from "express";
+import { obtenerDatos, Veificar } from "../controllers/controladores.js";
 const router = Router();
-router.get("/home", (req, res)=>{
-    res.send("hola")
-    console.log("entrando a la ruta principal")
-})
-
+router.post("/credenciales", obtenerDatos )
+router.get("/verificar", Veificar)
 export default router
