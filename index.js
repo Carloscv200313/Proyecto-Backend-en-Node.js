@@ -8,7 +8,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
     credentials: true,
-    origin: "http://localhost:5173",
+    origin: "https://login-de-prueba.netlify.app",
     methods: ["GET", "POST", "PUT", "DELETE"], // Optional: you can specify allowed methods
     allowedHeaders: ["Content-Type", "Authorization"], // Optional: you can specify allowed headers
 }));

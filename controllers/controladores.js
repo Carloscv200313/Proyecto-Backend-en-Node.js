@@ -24,9 +24,10 @@ export const obtenerDatos = async (req, res) => {
             "rol");
         const serialized = serialize("mytoken", token, {
             httpOnly: true, 
-            path: "/", 
-            maxAge: 60 * 60 * 24, // 1 día
-        });
+            secure: true, 
+            sameSite: 'None',
+            maxAge: 24 * 60 * 60 * 1000 
+        });         
         res.setHeader("Set-Cookie", serialized);
         return res.json({ id, rol });
     }
@@ -35,6 +36,7 @@ export const obtenerDatos = async (req, res) => {
 
 export const Veificar = (req, res) => {
     const token = req.cookies.mytoken;
+    console.log(token);
     if (!token) {
         return res.status(401).json({ message: "Token no encontrado" });
     }
